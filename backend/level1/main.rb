@@ -19,6 +19,6 @@ rentals_inputs["rentals"].each do |rental_input|
     rentals << rental
   end
 end
-File.open(File.join(data_files_directory_path, "output.json").to_s,"w") do |f|
-  f.write(JSON.pretty_generate({ "rentals" =>rentals}))
+File.open(File.join(data_files_directory_path, "output.json").to_s,"w") do |output_file|
+  output_file.write(JSON.pretty_generate({ "rentals" =>rentals}))
 end
