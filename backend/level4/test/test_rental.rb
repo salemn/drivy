@@ -58,14 +58,14 @@ class Test_Rental < Test::Unit::TestCase
   def test_deductible_reduction_value_option_activated
     rental = Rental.new(:id => 1, :start_date => "2015-12-8",
                         :end_date => "2015-12-8", :distance => 100, :car => Car.new(:price_per_day => 100, :price_per_km => 120), :option => Options.new(:deductible_reduction => "true"))
-    result = Rental.send(:deductible_reduction)
+    result = rental.deductible_reduction
     assert_equal(400, result)
   end
 
   def test_deductible_reduction_value_option_activated
-    @rental = Rental.new(:id => 1, :start_date => "2015-12-8",
+    rental = Rental.new(:id => 1, :start_date => "2015-12-8",
                         :end_date => "2015-12-8", :distance => 100, :car => Car.new(:price_per_day => 100, :price_per_km => 120), :option => Options.new(:deductible_reduction => "false"))
-    result = @rental.deductible_reduction
+    result = rental.deductible_reduction
     assert_equal(0, result)
   end
 
