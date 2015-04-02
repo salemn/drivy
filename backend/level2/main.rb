@@ -45,8 +45,7 @@ rentals_inputs["rentals"].each do |rental_input|
     selected_car = cars[rental_input["car_id"]]
     rental = {}
     duration = Duration.new(rental_input["start_date"], rental_input["end_date"])
-    number_of_rental_days = duration.rental_duration
-    rental_price = rental_duration_price(number_of_rental_days, selected_car["price_per_day"]) + rental_distance_price(rental_input["distance"], selected_car["price_per_km"])
+    rental_price = rental_duration_price(duration.rental_duration, selected_car["price_per_day"]) + rental_distance_price(rental_input["distance"], selected_car["price_per_km"])
     rental["id"] = rental_input["id"]
     rental["price"] = rental_price.to_i
     rentals << rental
