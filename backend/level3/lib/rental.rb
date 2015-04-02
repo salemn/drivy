@@ -2,7 +2,7 @@ require 'date'
 require_relative 'rental_commission'
 
 class Rental
-  attr_reader :id, :start_date, :end_date, :distance, :car, :option
+  attr_reader :id, :start_date, :end_date, :distance, :car
 
   def initialize(args)
     @id = args[:id]
@@ -10,7 +10,6 @@ class Rental
     @end_date = args[:end_date]
     @distance = args[:distance]
     @car = args[:car]
-    @option = args[:option]
   end
 
   def rental_price
