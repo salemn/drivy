@@ -20,7 +20,6 @@ rentals_inputs["rentals"].each do |rental_input|
     rentals << rental.rental_debit_credit_summary
   end
 end
-puts File.join(data_files_directory_path, "output.json").to_s
 File.open(File.join(data_files_directory_path, "output.json").to_s,"w+") do |output_file|
   output_file.write(JSON.pretty_generate({ "rentals" =>rentals}))
 end
