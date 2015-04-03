@@ -40,13 +40,6 @@ class Test_Rental < Test::Unit::TestCase
     assert_equal(12890, result)
   end
 
-  def test_rental_price_result_more_ten_days
-    rental = Rental.new(:id => 1, :start_date => "2015-12-8",
-                        :end_date => "2015-12-19", :distance => 100, :car => Car.new(:price_per_day => 100, :price_per_km => 120))
-    result = rental.rental_price
-    assert_equal(12890, result)
-  end
-
   def test_rental_fee_result
     rental = Rental.new(:id => 1, :start_date => "2015-12-8",
                         :end_date => "2015-12-19", :distance => 100, :car => Car.new(:price_per_day => 100, :price_per_km => 120))
