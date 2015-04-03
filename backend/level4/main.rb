@@ -15,7 +15,7 @@ rentals_inputs["rentals"].each do |rental_input|
   if cars.has_key?(rental_input["car_id"])
     selected_car = cars[rental_input["car_id"]]
     rental = Rental.new(:id => rental_input["id"], :start_date =>rental_input["start_date"],
-                        :end_date => rental_input["end_date"], :distance => rental_input["distance"], :car => selected_car, :option => Options.new(:deductible_reduction => rental_input["deductible_reduction"]))
+                        :end_date => rental_input["end_date"], :distance => rental_input["distance"], :car => selected_car, :options => Options.new(:deductible_reduction => rental_input["deductible_reduction"]))
 
     rentals << rental.rental_information_summary
   end

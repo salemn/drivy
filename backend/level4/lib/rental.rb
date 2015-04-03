@@ -4,7 +4,7 @@ require_relative 'options'
 
 
 class Rental
-  attr_reader :id, :start_date, :end_date, :distance, :car, :option
+  attr_reader :id, :start_date, :end_date, :distance, :car, :options
 
   def initialize(args)
     @id = args[:id]
@@ -12,7 +12,7 @@ class Rental
     @end_date = args[:end_date]
     @distance = args[:distance]
     @car = args[:car]
-    @option = args[:option]
+    @options = args[:options]
   end
 
   def rental_price
@@ -28,7 +28,7 @@ class Rental
   end
 
   def deductible_reduction
-    if (@option.deductible_reduction == true)
+    if (@options.deductible_reduction == true)
       return (total_rental_days * 400).to_i
     else
       return 0
